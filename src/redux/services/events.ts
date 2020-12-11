@@ -21,7 +21,7 @@ export const getDataFromGraphQL = async (
       query: QUERY_GET_HOME_EVENTS,
       variables: {
         longitude,
-        latitude,
-      },
+        latitude
+      }
     })
     .then((res) => res.data.getHomeEvents);

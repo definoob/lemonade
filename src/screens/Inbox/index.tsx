@@ -1,9 +1,5 @@
 function Inbox() {
-  return (
-    <div>
-      Inbox screen
-    </div>
-  );
+  return <div>Inbox screen</div>;
 }
 
 export default Inbox;

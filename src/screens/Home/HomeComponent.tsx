@@ -1,5 +1,6 @@
 import { FunctionComponent, useEffect } from 'react';
-import { EventInterface } from "../../redux/actionTypes"
+import { EventInterface } from '../../redux/actionTypes';
+import Card from '../../components/Card';
 
 interface Props {
   data: Array<EventInterface>;
@@ -25,10 +26,11 @@ const Home: FunctionComponent<Props> = (props) => {
   return (
     <div>
       {data.map((event, idx) => {
-        return <p key={idx}>{event.cover}</p>;
+        return <Card key={idx} data={event} />;
+        // return <p key={idx}>{event.cover}</p>;
       })}
     </div>
   );
-}
+};
 
 export default Home;

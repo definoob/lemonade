@@ -7,7 +7,7 @@ export function fetchData(
   return {
     type: actions.GET_DATA,
     longitude,
-    latitude,
+    latitude
   };
 }
 
@@ -16,18 +16,18 @@ export function fetchSuccess(
 ): actions.FetchSuccessAction {
   return {
     type: actions.FETCH_SUCCESS,
-    data,
+    data
   };
 }
 
 export function fetchFailed(): actions.FetchFailedAction {
   return {
-    type: actions.FETCH_FAILED,
+    type: actions.FETCH_FAILED
   };
 }
 export function setLoading(isLoading: boolean): actions.SetIsLoadingAction {
   return {
     type: actions.SET_IS_LOADING,
-    isLoading,
+    isLoading
   };
 }

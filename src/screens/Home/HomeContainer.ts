@@ -9,14 +9,14 @@ const mapStateToProps = (state: AppState) => {
   return {
     data: state.events.data,
     isLoading: state.events.isLoading,
-    isError: state.events.isError,
+    isError: state.events.isError
   };
 };
 
 const mapDispatchToProps = (dispatch: Dispatch<GetDataAction>) => ({
   fetchData: (latitude: number, longitude: number) => {
     dispatch(fetchData(latitude, longitude));
-  },
+  }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeComponent);

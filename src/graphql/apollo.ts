@@ -5,10 +5,10 @@ import { getBackendURL } from './config';
 
 const cache = new InMemoryCache();
 const link = new HttpLink({
-  uri: getBackendURL(),
+  uri: getBackendURL()
 });
 
 export const client = new ApolloClient({
   cache,
-  link,
+  link
 });

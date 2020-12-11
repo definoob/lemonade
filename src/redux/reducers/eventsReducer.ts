@@ -9,7 +9,7 @@ export interface EventsState {
 const initialState: EventsState = {
   data: [],
   isLoading: true,
-  isError: false,
+  isError: false
 };
 
 export default function eventsReducer(
