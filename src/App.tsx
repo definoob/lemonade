@@ -1,3 +1,4 @@
+import { FunctionComponent } from 'react';
 import { Provider } from 'react-redux'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 
@@ -9,7 +10,7 @@ import NotFound from './screens/404';
 import configureStore from "./redux/store/configureStore";
 const store = configureStore();
 
-const App: React.FunctionComponent = () => {
+const App: FunctionComponent = () => {
   return (
     <Provider store={store}>
       <BrowserRouter>

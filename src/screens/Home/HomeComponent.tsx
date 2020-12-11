@@ -1,11 +1,13 @@
 import { FunctionComponent, useEffect } from 'react';
+import { EventInterface } from "../../redux/actionTypes"
 
 interface Props {
-  data: Array<Object>;
+  data: Array<EventInterface>;
   isLoading: boolean;
   isError: boolean;
   fetchData(latitude: number, longitude: number): void;
 }
+
 const Home: FunctionComponent<Props> = (props) => {
   const { fetchData, data, isLoading, isError } = props;
 
@@ -22,7 +24,9 @@ const Home: FunctionComponent<Props> = (props) => {
 
   return (
     <div>
-      Home screen - I am going to list cards here
+      {data.map((event, idx) => {
+        return <p key={idx}>{event.cover}</p>;
+      })}
     </div>
   );
 }

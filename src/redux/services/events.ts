@@ -15,8 +15,8 @@ type ApolloQueryResut<T> = {
 export const getDataFromGraphQL = async (
   longitude: number,
   latitude: number
-): Promise<ApolloQueryResut<EventInterface>> => {
-  return await client
+): Promise<ApolloQueryResut<EventInterface>> =>
+  await client
     .query({
       query: QUERY_GET_HOME_EVENTS,
       variables: {
@@ -24,5 +24,4 @@ export const getDataFromGraphQL = async (
         latitude,
       },
     })
-    .then((res) => res.data);
-};
+    .then((res) => res.data.getHomeEvents);
