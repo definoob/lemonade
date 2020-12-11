@@ -1,14 +1,14 @@
 import * as actions from '../actionTypes';
 
 export interface EventsState {
-  data: Array<Object>;
+  data: Array<actions.EventInterface>;
   isLoading: boolean;
   isError: boolean;
 }
 
 const initialState: EventsState = {
   data: [],
-  isLoading: false,
+  isLoading: true,
   isError: false,
 };
 

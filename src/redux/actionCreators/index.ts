@@ -11,7 +11,9 @@ export function fetchData(
   };
 }
 
-export function fetchSuccess(data: Array<Object>): actions.FetchSuccessAction {
+export function fetchSuccess(
+  data: Array<actions.EventInterface>
+): actions.FetchSuccessAction {
   return {
     type: actions.FETCH_SUCCESS,
     data,
