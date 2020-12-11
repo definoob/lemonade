@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Provider } from 'react-redux'
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 
-function App() {
+import Home from './screens/Home/HomeContainer';
+import Inbox from './screens/Inbox';
+import CreateEvent from './screens/CreateEvent';
+import NotFound from './screens/404';
+
+import configureStore from "./redux/store/configureStore";
+const store = configureStore();
+
+const App: React.FunctionComponent = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route exact path='/inbox' component={Inbox} />
+          <Route exact path='/createevent' component={CreateEvent} />
+          <Route path='/404' component={NotFound} />
+          <Redirect to='/404' />
+        </Switch>
+      </BrowserRouter>
+    </Provider>
   );
-}
+};
 
 export default App;
