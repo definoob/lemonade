@@ -25,10 +25,12 @@ const Home: FunctionComponent<Props> = (props) => {
 
   return (
     <div>
-      {data.map((event, idx) => {
-        return <Card key={idx} data={event} />;
-        // return <p key={idx}>{event.cover}</p>;
-      })}
+      <h2 style={{ color: 'white', marginLeft: '24px' }}>my experience</h2>
+      <div style={{ display: 'flex', border: '1px solid white' }}>
+        {data.map((event, idx) => (
+          <Card key={idx} data={event} />
+        ))}
+      </div>
     </div>
   );
 };
