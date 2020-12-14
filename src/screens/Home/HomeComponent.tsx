@@ -1,4 +1,5 @@
 import { FunctionComponent, useEffect, useState, useRef } from 'react';
+import Loading from './Loading';
 import { EventInterface } from '../../redux/actionTypes';
 import Card from '../../components/Card';
 import CreateCard from '../../components/CreateCard';
@@ -53,7 +54,7 @@ const Home: FunctionComponent<Props> = (props) => {
     setScrollDirection(direction);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
   if (isError) {
     return <div>Error...</div>;
