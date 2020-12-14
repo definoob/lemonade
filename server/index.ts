@@ -1,9 +1,20 @@
 import express, { Request, Response } from 'express';
 import path from 'path';
-import cors from 'cors';
+import rateLimit from 'express-rate-limit';
+import compression from 'compression';
+
 const app = express();
 
-app.use(cors());
+// a little bit more compression for
+app.use(compression());
+
+// in order to prevent spammers, who are refreshing like millions of time per minute
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 100
+});
+
+app.use(limiter);
 
 app.use(express.static(path.join(__dirname, '..', 'build')));
 app.use(express.static('public'));
