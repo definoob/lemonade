@@ -1,6 +1,7 @@
 import { FunctionComponent, useEffect } from 'react';
 import { EventInterface } from '../../redux/actionTypes';
 import Card from '../../components/Card';
+import CreateCard from '../../components/CreateCard';
 
 interface Props {
   data: Array<EventInterface>;
@@ -25,8 +26,9 @@ const Home: FunctionComponent<Props> = (props) => {
 
   return (
     <div>
-      <h2 style={{ color: 'white', marginLeft: '24px' }}>my experience</h2>
-      <div style={{ display: 'flex', border: '1px solid white' }}>
+      <h2 className="homescreen__title">my experience</h2>
+      <div className="homescreen__data">
+        <CreateCard />
         {data.map((event, idx) => (
           <Card key={idx} data={event} />
         ))}

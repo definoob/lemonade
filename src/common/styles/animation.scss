@@ -1,0 +1,16 @@
+// Fade In/Out Animations
+
+@keyframes fade-animation {
+  0% {
+    opacity: 0;
+  }
+  8.3% {
+    opacity: 1;
+  }
+  16.6% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
