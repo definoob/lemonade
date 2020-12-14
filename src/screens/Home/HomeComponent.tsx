@@ -17,6 +17,7 @@ const Home: FunctionComponent<Props> = (props) => {
   const [isLeftScrollable, setIsLeftScrollable] = useState(false);
   const [isRightScrollable, setIsRightScrollable] = useState(true);
   const [scrollDirection, setScrollDirection] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     fetchData(2.1734, 41.3851);
@@ -65,8 +66,9 @@ const Home: FunctionComponent<Props> = (props) => {
         <div className="homescreen__data">
           <CreateCard />
           {data.map((event, idx) => (
-            <Card key={idx} data={event} />
+            <Card key={idx} data={event} hover={setIsHovered} />
           ))}
+          {isHovered && <div className="homescreen__dark_overlay" />}
         </div>
       </div>
       {isLeftScrollable && (
