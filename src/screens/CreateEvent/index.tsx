@@ -1,5 +1,5 @@
 function CreateEvent() {
-  return <div>create eventscreen</div>;
+  return <div style={{ color: 'white' }}>create eventscreen</div>;
 }
 
 export default CreateEvent;

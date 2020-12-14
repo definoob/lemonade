@@ -1,5 +1,5 @@
 function Inbox() {
-  return <div>Inbox screen</div>;
+  return <div style={{ color: 'white' }}>Inbox screen</div>;
 }
 
 export default Inbox;
