@@ -1,5 +1,5 @@
 function CreateEvent() {
-  return <div>Inbox screen</div>;
+  return <div>create eventscreen</div>;
 }
 
 export default CreateEvent;

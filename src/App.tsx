@@ -7,6 +7,8 @@ import Inbox from './screens/Inbox';
 import CreateEvent from './screens/CreateEvent';
 import NotFound from './screens/404';
 
+import BottomBar from './components/BottomBar';
+
 import configureStore from './redux/store/configureStore';
 const store = configureStore();
 
@@ -21,6 +23,7 @@ const App: FunctionComponent = () => {
           <Route path="/404" component={NotFound} />
           <Redirect to="/404" />
         </Switch>
+        <BottomBar />
       </BrowserRouter>
     </Provider>
   );
