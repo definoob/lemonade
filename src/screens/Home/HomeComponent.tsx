@@ -2,6 +2,7 @@ import { FunctionComponent, useEffect, useState, useRef } from 'react';
 import { EventInterface } from '../../redux/actionTypes';
 import Card from '../../components/Card';
 import CreateCard from '../../components/CreateCard';
+import useInterval from '../../utils/useInterval';
 
 interface Props {
   data: Array<EventInterface>;
@@ -15,10 +16,27 @@ const Home: FunctionComponent<Props> = (props) => {
   const container = useRef<HTMLDivElement>(null);
   const [isLeftScrollable, setIsLeftScrollable] = useState(false);
   const [isRightScrollable, setIsRightScrollable] = useState(true);
+  const [scrollDirection, setScrollDirection] = useState(0);
 
   useEffect(() => {
     fetchData(2.1734, 41.3851);
   }, [fetchData]);
+
+  useEffect(() => {
+    if (isRightScrollable === false || isLeftScrollable === false) {
+      setScrollDirection(0);
+    }
+  }, [isRightScrollable, isLeftScrollable]);
+
+  useInterval(
+    () => {
+      container.current?.scroll(
+        container.current.scrollLeft + scrollDirection,
+        0
+      );
+    },
+    scrollDirection === 0 ? null : 1
+  );
 
   const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
     e.stopPropagation();
@@ -30,10 +48,8 @@ const Home: FunctionComponent<Props> = (props) => {
     setIsRightScrollable(clientWidth + left < width);
   };
 
-  const onScrollLeft = () =>
-    container.current?.scroll(container.current.scrollLeft - 40, 0);
-  const onScrollRight = () =>
-    container.current?.scroll(container.current.scrollLeft + 40, 0);
+  const onSmoothScroll = (direction: number): void =>
+    setScrollDirection(direction);
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -56,7 +72,8 @@ const Home: FunctionComponent<Props> = (props) => {
       {isLeftScrollable && (
         <div
           className="homescreen__scrollButton homescreen__leftScrollButton"
-          onClick={onScrollLeft}
+          onMouseDown={() => onSmoothScroll(-1)}
+          onMouseUp={() => onSmoothScroll(0)}
         >
           <span>&lsaquo;</span>
         </div>
@@ -64,7 +81,8 @@ const Home: FunctionComponent<Props> = (props) => {
       {isRightScrollable && (
         <div
           className="homescreen__scrollButton homescreen__rightScrollButton"
-          onClick={onScrollRight}
+          onMouseDown={() => onSmoothScroll(1)}
+          onMouseUp={() => onSmoothScroll(0)}
         >
           <span>&rsaquo;</span>
         </div>
