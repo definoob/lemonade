@@ -13,15 +13,15 @@ const StyledLoader = styled(LoadingOverlay)`
   }
 `;
 
-const Loading: FunctionComponent = () => {
+const Loader: FunctionComponent = () => {
   return (
     <StyledLoader
       active={true}
       spinner
       text="BUBBLING..."
       classNamePrefix="MyLoader_"
-    ></StyledLoader>
+    />
   );
 };
 
-export default Loading;
+export default Loader;
