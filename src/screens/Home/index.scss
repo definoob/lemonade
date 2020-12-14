@@ -1,5 +1,16 @@
 /* @define HomeScreen */
 
+.homescreen {
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.homescreen::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
 .homescreen__title {
   color: white;
   margin-left: 24px;
@@ -7,5 +18,30 @@
 
 .homescreen__data {
   display: inline-flex;
-  border: 1px solid white;
+}
+
+.homescreen__scrollButton {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  position: absolute;
+  top: 45%;
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
+  border: solid 2px rgba(255, 255, 255, 0.24);
+  background-color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.54);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.homescreen__leftScrollButton {
+  left: 26px;
+}
+
+.homescreen__rightScrollButton {
+  right: 26px;
 }
