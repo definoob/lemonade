@@ -36,6 +36,7 @@ const EventInfo = styled.div``;
 const Title = styled.span`
   line-height: 23px;
   font-size: 18px;
+  font-family: 'CircularStd-Medium';
   font-weight: 500;
   text-align: left;
 `;
@@ -50,6 +51,7 @@ const InfoText = styled.span`
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
+  font-family: 'CircularStd-Medium';
   line-height: 15px;
   letter-spacing: normal;
   text-align: left;

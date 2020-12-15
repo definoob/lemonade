@@ -1,0 +1,11 @@
+$font-path: '../fonts' !default;
+
+@font-face {
+  font-family: 'CircularStd-Medium';
+  src: url('#{$font-path}/CircularStd-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'SpaceGrotesk';
+  src: url('#{$font-path}/SpaceGrotesk-Regular.ttf');
+}
