@@ -1,11 +1,11 @@
 import { ApolloClient } from 'apollo-client';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { HttpLink } from 'apollo-link-http';
-import { getBackendURL } from './config';
+import { backendURL } from './config';
 
 const cache = new InMemoryCache();
 const link = new HttpLink({
-  uri: getBackendURL()
+  uri: backendURL
 });
 
 export const client = new ApolloClient({
