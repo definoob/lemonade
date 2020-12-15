@@ -19,6 +19,8 @@ const CardContainer = styled.div`
     transform: scale(1.1);
     transform-origin: center;
     z-index: 100;
+    margin-left: 32px;
+    margin-right: 20px;
   }
 `;
 
