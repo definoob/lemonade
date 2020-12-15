@@ -13,9 +13,17 @@ const BottomBar: FunctionComponent = () => {
   const history = useHistory();
   const [currentPath, setCurrentPath] = useState(history.location.pathname);
 
-  const getIconColor = (name: string): string =>
-    currentPath === name ? '#a667f3' : 'rgba(255, 255, 255, 0.42)';
+  const getIconColor = (name: string): string => {
+    if (name === '/inbox') {
+      if (currentPath === name) {
+        return '#a667f3';
+      }
+      return checkNewMsg() ? 'white' : 'rgba(255, 255, 255, 0.42)';
+    }
+    return currentPath === name ? '#a667f3' : 'rgba(255, 255, 255, 0.42)';
+  };
 
+  // this needs to be updated later using backend data.
   const checkNewMsg = (): boolean => currentPath !== '/inbox';
 
   const pushNewScreen = (path: string): void => {
